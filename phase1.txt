@@ -1,0 +1,8 @@
+function recon(image) 
+   	im= rgb2gray(image); 
+	mask = zeros(size(im)); 
+	mask(40:74,310:356) = 1;  
+	mask = activecontour(im,mask);    	
+	reim=inpaintExemplar(im,mask,'FillOrder','tensor','PatchSize',7);
+       	montage({im,res});
+	end
